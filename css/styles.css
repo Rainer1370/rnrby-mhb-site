@@ -3,259 +3,144 @@
    Developed by Rob Rainer • rainer1370.com
    =============================== */
 
+/* --------- Design tokens --------- */
+:root{
+  --ink: #1a1a1a;
+  --muted: #555;
+  --line: #eaeaea;
+
+  --brand: #0f766e;     /* teal */
+  --brand-600:#0d6b63;
+  --brand-700:#0a5852;
+  --brand-soft:#ecfdf5; /* very light teal wash */
+
+  --bg: #ffffff;
+  --bg-alt:#fafafa;
+
+  --radius: 12px;
+  --shadow-1: 0 1px 3px rgba(0,0,0,.05);
+  --shadow-2: 0 8px 24px rgba(15, 118, 110, .08); /* brand-tinted */
+}
+
 /* Reset & Base */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
+*{box-sizing:border-box;margin:0;padding:0}
+body{
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
-  line-height: 1.6;
-  color: #1a1a1a;
-  background: #fff;
+  line-height:1.6;color:var(--ink);background:var(--bg)
 }
-
-/* Layout helpers */
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1.25rem;
-}
+a{color:inherit}
+.wrap{max-width:1100px;margin:0 auto;padding:1.25rem}
 
 /* Header */
-.site-header {
-  border-bottom: 1px solid #eee;
-  position: sticky;
-  top: 0;
-  background: #fff;
-  z-index: 10;
+.site-header{
+  position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid var(--line)
+}
+.site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-weight:800;font-size:1.1rem;text-decoration:none;color:#0b0b0b;letter-spacing:.2px}
+.nav{display:flex;gap:1.1rem;align-items:center}
+.nav a{color:#333;text-decoration:none;border-radius:8px;padding:.3rem .4rem;transition:color .15s ease, background .2s ease}
+.nav a:hover{color:#000;background:var(--bg-alt)}
+.nav .cta{padding:.5rem .85rem;border:1px solid #111;border-radius:999px}
+
+/* Hero */
+.hero{
+  background: linear-gradient(180deg, var(--brand-soft) 0%, #ffffff 55%);
+  padding: 3.25rem 0; text-align:center;
+  box-shadow: var(--shadow-2) inset;
+}
+.hero h1{font-size:2.05rem;margin-bottom:.55rem}
+.hero p{font-size:1.1rem;color:#333}
+
+/* Buttons */
+.button{
+  display:inline-block;padding:.8rem 1.05rem;border:1px solid #111;border-radius:12px;
+  text-decoration:none;color:#111;margin-top:1rem;transition:all .18s ease
+}
+.button:hover{background:#111;color:#fff;transform:translateY(-1px)}
+.button.primary{
+  background:var(--brand);border-color:var(--brand);color:#fff;
+  box-shadow:0 6px 18px rgba(15,118,110,.18)
+}
+.button.primary:hover{background:var(--brand-600);border-color:var(--brand-600)}
+
+/* Page hero */
+.page-hero{
+  background: linear-gradient(180deg, #f7f7f7 0%, #ffffff 65%);
+  border-bottom:1px solid var(--line); padding:1.6rem 0; text-align:center
+}
+.page-hero h1{font-size:1.6rem;margin-bottom:.5rem}
+
+/* Section “cards” */
+.section, .services-overview, .gallery, .testimonials, .content .wrap:not(.no-card){
+  background:var(--bg-alt); border:1px solid var(--line);
+  border-radius:var(--radius); padding:2rem 1.5rem; margin-top:1.5rem;
+  box-shadow:var(--shadow-1)
 }
 
-.brand {
-  font-weight: 700;
-  font-size: 1.1rem;
-  text-decoration: none;
-  color: #111;
+/* CTA bar */
+.cta-bar{
+  background:#f6f6f6;border-block:1px solid var(--line); text-align:center;
+  padding:1.5rem 1rem; box-shadow: var(--shadow-1) inset
 }
 
-.nav {
-  float: right;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
+/* Services grid */
+.services-overview .grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:.75rem;margin-top:1rem;list-style:disc;padding-left:1rem
 }
 
-.nav a {
-  text-decoration: none;
-  color: #333;
-  transition: color 0.2s ease-in-out;
+/* Contact form */
+.contact-form{display:grid;gap:.75rem;margin:1rem 0}
+.contact-form label{display:grid;gap:.25rem;font-weight:600}
+.contact-form input,.contact-form textarea{
+  padding:.65rem;border:1px solid #ccc;border-radius:.5rem;font-family:inherit
 }
+.contact-form input:focus,.contact-form textarea:focus{
+  outline:2px solid var(--brand);outline-offset:2px;border-color:var(--brand-600)
+}
+.contact-form button{
+  padding:.75rem 1rem;border:0;border-radius:.6rem;background:#111;color:#fff;cursor:pointer;
+  transition:background .18s ease, transform .12s ease
+}
+.contact-form button:hover{background:#333;transform:translateY(-1px)}
 
-.nav a:hover {
-  color: #000;
+/* Gallery (grid) */
+.gallery .grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.1rem;margin-top:1.25rem
 }
+.gallery figure{background:#fff;border:1px solid var(--line);border-radius:.6rem;padding:.5rem;box-shadow:var(--shadow-1)}
+.gallery img{width:100%;border-radius:.4rem;display:block;transition:transform .18s ease, box-shadow .18s ease}
+.gallery img:hover{transform:scale(1.02) translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.08)}
+.gallery figcaption{text-align:center;margin-top:.45rem;font-size:.9rem;color:#444}
 
-.nav .cta {
-  padding: 0.5rem 0.8rem;
-  border: 1px solid #111;
-  border-radius: 0.5rem;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(180deg, #f6f6f6 0%, #ffffff 100%);
-  padding: 3rem 0;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero p {
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.75rem 1rem;
-  border: 1px solid #111;
-  border-radius: 0.5rem;
-  text-decoration: none;
-  color: #111;
-  margin-top: 1rem;
-  transition: all 0.2s ease-in-out;
-}
-
-.button:hover {
-  background: #111;
-  color: #fff;
-}
-
-/* Services Grid */
-.services-overview .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 0.75rem;
-  margin-top: 1rem;
-  list-style: disc;
-  padding-left: 1rem;
-}
-
-/* Page Hero */
-.page-hero {
-  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
-  border-bottom: 1px solid #eee;
-  padding: 1.5rem 0;
-  text-align: center;
-}
-
-.page-hero h1 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-/* Section Backgrounds */
-.services-overview,
-.gallery,
-.wrap {
-  background-color: #fafafa;
-  border-radius: 0.5rem;
-  padding: 2rem 1.5rem;
-  margin-top: 1.5rem;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-/* CTA Bar */
-.cta-bar {
-  background: #f6f6f6;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  text-align: center;
-  padding: 1.5rem 1rem;
-}
+/* Testimonials */
+.testimonials{display:grid;gap:1.1rem;margin-top:1rem}
+blockquote{background:#fff;border-left:4px solid var(--brand);padding:1rem;border-radius:.5rem;border:1px solid var(--line)}
+blockquote p{margin-bottom:.5rem}
+blockquote cite{display:block;color:var(--muted);font-style:normal;font-size:.95rem}
 
 /* Footer */
-.site-footer {
-  border-top: 1px solid #eee;
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  color: #555;
-  background: #fafafa;
-  padding: 1rem 0;
+.site-footer{
+  border-top:1px solid var(--line); margin-top:2rem; text-align:center;
+  font-size:.9rem; color:var(--muted); background:#f7f7f7; padding:1rem 0
+}
+.site-footer a{color:var(--brand);text-decoration:none}
+.site-footer a:hover{text-decoration:underline}
+
+.developer{font-size:.85rem;color:#666;margin-top:.5rem}
+
+/* Utility */
+.small{font-size:.9rem;color:#444;margin-top:.5rem}
+
+/* Focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline:2px solid var(--brand); outline-offset:2px
 }
 
-.site-footer a {
-  color: #111;
-  text-decoration: none;
-}
-
-.site-footer a:hover {
-  text-decoration: underline;
-}
-
-.developer {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 0.5rem;
-}
-
-/* Notes */
-.note {
-  margin-top: 1rem;
-  font-style: italic;
-}
-
-/* Contact Form */
-.contact-form {
-  display: grid;
-  gap: 0.75rem;
-  margin: 1rem 0;
-}
-
-.contact-form label {
-  display: grid;
-  gap: 0.25rem;
-  font-weight: 500;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 0.4rem;
-  font-family: inherit;
-}
-
-.contact-form button {
-  padding: 0.7rem 1rem;
-  border: 0;
-  border-radius: 0.5rem;
-  background: #111;
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.2s ease-in-out;
-}
-
-.contact-form button:hover {
-  background: #333;
-}
-
-/* Gallery */
-.gallery .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 0.4rem;
-  display: block;
-  transition: transform 0.2s ease-in-out;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.gallery img:hover {
-  transform: scale(1.03) translateY(-2px);
-}
-
-.gallery figcaption {
-  text-align: center;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: #444;
-}
-
-/* Small text */
-.small {
-  font-size: 0.9rem;
-  color: #444;
-  margin-top: 0.5rem;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 720px) {
-  .nav {
-    float: none;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 0.5rem 0;
-  }
-
-  .brand {
-    display: block;
-    text-align: center;
-    margin-bottom: 0.25rem;
-  }
-
-  .hero h1 {
-    font-size: 1.5rem;
-  }
+/* Responsive */
+@media (max-width: 720px){
+  .nav{justify-content:center;flex-wrap:wrap;padding:.5rem 0}
+  .brand{display:block;text-align:center;margin-bottom:.25rem}
+  .hero h1{font-size:1.6rem}
 }
