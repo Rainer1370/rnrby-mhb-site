@@ -4,20 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery • R&amp;R by MHB LLC</title>
-  <meta name="description" content="View completed renovation projects by R&R by MHB LLC — kitchens, bathrooms, decks, flooring, and more." />
+  <meta name="description" content="View completed renovation projects by R&amp;R by MHB LLC — flooring, bathrooms, decks, and more." />
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    /* Page-specific gallery styles */
-    .pairs { display: grid; gap: 2rem; margin-top: 1.5rem; }
-    .pair { display: grid; gap: 1rem; }
-    .pair h2 { font-size: 1.15rem; }
-    .ba-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
-    .ba-grid figure { margin: 0; }
-    .ba-grid img { width: 100%; height: auto; border-radius: .4rem; display: block; }
-    .ba-grid figcaption { text-align: center; font-size: .9rem; color: #444; margin-top: .4rem; }
-    @media (max-width: 720px) { .ba-grid { grid-template-columns: 1fr; } }
-    .muted { color:#666; font-size:.95rem; margin-top:.75rem; }
-  </style>
 </head>
 <body>
   <header class="site-header">
@@ -38,119 +26,30 @@
       <div class="wrap">
         <h1>Project Gallery</h1>
         <p>A look at some of our recent renovations and craftsmanship.</p>
-        <p class="muted">This page groups photos into Before/After pairs automatically based on filenames like <code>KitchenBefore1.jpg</code> and <code>KitchenAfter1.jpg</code>.</p>
       </div>
     </section>
 
     <section class="wrap gallery">
-      <div id="pairs" class="pairs"></div>
+      <h2>Flooring</h2>
+      <div class="grid">
+        <figure>
+          <img src="images/Flooring1.jpg" alt="Flooring project - photo 1" loading="lazy" />
+          <figcaption>Flooring — Photo 1</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Flooring2.jpg" alt="Flooring project - photo 2" loading="lazy" />
+          <figcaption>Flooring — Photo 2</figcaption>
+        </figure>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed & Insured</p>
-      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> — Senior Technology Engineer</p>
+      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed &amp; Insured</p>
+      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank" rel="noopener">Rob Rainer</a> — Senior Technology Engineer</p>
     </div>
   </footer>
-
-  <script>
-    // --- UPDATE THIS LIST to match files in /images ---
-    // Include all Before/After images you want paired.
-    // Examples shown; replace with your actual filenames:
-    const files = [
-      "BathBefore1.jpg", "BathAfter1.jpg",
-      "BathBefore2.jpg", "BathAfter2.jpg",
-      "KitchenBefore1.jpg", "KitchenAfter1.jpg",
-      "DeckBefore1.jpg", "DeckAfter1.jpg",
-      // "FlooringBefore1.jpg", "FlooringAfter1.jpg",
-    ];
-    // ---------------------------------------------------
-
-    const PAIR_REGEX = /^(.*?)(Before|After)(\d*)\.(jpe?g|png|webp|gif)$/i;
-
-    function humanizeBaseName(base) {
-      // turns "Kitchen" or "MasterBath" into "Kitchen" / "Master Bath"
-      return base
-        .replace(/([a-z])([A-Z])/g, "$1 $2")
-        .replace(/[-_]+/g, " ")
-        .trim()
-        .replace(/\s+/g, " ");
-    }
-
-    function groupPairs(list) {
-      const map = new Map();
-      list.forEach(name => {
-        const m = name.match(PAIR_REGEX);
-        if (!m) return;
-        const [, base, side, num = ""] = m;
-        const key = `${base}::${num}`;
-        if (!map.has(key)) map.set(key, { base, num, before: null, after: null });
-        const entry = map.get(key);
-        if (/before/i.test(side)) entry.before = name;
-        if (/after/i.test(side)) entry.after = name;
-      });
-      // keep only complete pairs
-      return Array.from(map.values()).filter(e => e.before && e.after);
-    }
-
-    function renderPairs(pairs) {
-      const root = document.getElementById("pairs");
-      if (!root) return;
-      if (!pairs.length) {
-        const p = document.createElement("p");
-        p.className = "muted";
-        p.textContent = "No complete Before/After pairs were found. Make sure both images exist and follow the pattern: NameBefore#.jpg and NameAfter#.jpg";
-        root.appendChild(p);
-        return;
-      }
-
-      pairs.sort((a,b) => {
-        const A = (a.base + a.num).toLowerCase();
-        const B = (b.base + b.num).toLowerCase();
-        return A.localeCompare(B);
-      });
-
-      pairs.forEach(({ base, num, before, after }) => {
-        const section = document.createElement("section");
-        section.className = "pair";
-        const title = document.createElement("h2");
-        title.textContent = `${humanizeBaseName(base)} ${num || ""}`.trim();
-        section.appendChild(title);
-
-        const grid = document.createElement("div");
-        grid.className = "ba-grid";
-
-        const figBefore = document.createElement("figure");
-        const imgBefore = document.createElement("img");
-        imgBefore.loading = "lazy";
-        imgBefore.src = "images/" + before;
-        imgBefore.alt = `${humanizeBaseName(base)} ${num} — Before`.trim();
-        const capBefore = document.createElement("figcaption");
-        capBefore.textContent = "Before";
-        figBefore.appendChild(imgBefore);
-        figBefore.appendChild(capBefore);
-
-        const figAfter = document.createElement("figure");
-        const imgAfter = document.createElement("img");
-        imgAfter.loading = "lazy";
-        imgAfter.src = "images/" + after;
-        imgAfter.alt = `${humanizeBaseName(base)} ${num} — After`.trim();
-        const capAfter = document.createElement("figcaption");
-        capAfter.textContent = "After";
-        figAfter.appendChild(imgAfter);
-        figAfter.appendChild(capAfter);
-
-        grid.appendChild(figBefore);
-        grid.appendChild(figAfter);
-
-        section.appendChild(grid);
-        root.appendChild(section);
-      });
-    }
-
-    renderPairs(groupPairs(files));
-  </script>
 
   <script src="js/main.js"></script>
 </body>
