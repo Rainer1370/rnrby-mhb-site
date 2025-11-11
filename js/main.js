@@ -1,41 +1,33 @@
-/* R&R by MHB LLC — gallery helper
-   Drop image files in /images and list them below.
-   This script will render <figure><img><figcaption></figure> items
-   into the .gallery .grid container on gallery.html
+/* R&R by MHB LLC — Safe gallery helper (legacy grid only)
+   - If #pairs exists (new Before/After gallery), do nothing.
+   - If .gallery .grid exists (legacy gallery), render from `files`.
 */
 
 (function () {
-  // Find the gallery grid on the page (only exists on gallery.html)
+  // If the new Before/After system is present, exit.
+  if (document.getElementById("pairs")) return;
+
+  // Legacy grid container for simple galleries
   var grid = document.querySelector(".gallery .grid");
   if (!grid) return;
 
-  // TODO: Add/remove your image filenames (relative to /images/)
-  // Examples below; replace with your actual set.
+  // List image files here only if you're using the legacy grid.
   var files = [
-    "BathAfter1.jpg",
-    "BathBefore1.jpg",
-    "BathroomAfter1.jpg",
-    "BathroomBefore1.jpg",
-    "Flooring1.jpg",
-    "Flooring2.jpg"
-    // "DeckAfter1.jpg",
-    // "DeckBefore1.jpg",
+    // "BathAfter1.jpg",
+    // "BathBefore1.jpg",
+    // "Flooring1.jpg",
+    // "Flooring2.jpg",
   ];
 
-  // Make a readable caption from a filename, e.g. "BathAfter1.jpg" -> "Bath After"
   function captionFrom(name) {
     var base = name.replace(/^.*[\\/]/, "").replace(/\.[^.]+$/, "");
-    // Split on transitions (Before/After), underscores, or dashes
     base = base.replace(/([a-z])([A-Z])/g, "$1 $2").replace(/[-_]+/g, " ");
-    // Remove trailing numbers
     base = base.replace(/\d+$/, "").trim();
     return base || "Project photo";
   }
 
-  // Render images
   files.forEach(function (file) {
     var figure = document.createElement("figure");
-
     var img = document.createElement("img");
     img.loading = "lazy";
     img.src = "images/" + file;
@@ -49,4 +41,3 @@
     grid.appendChild(figure);
   });
 })();
-
