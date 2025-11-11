@@ -3,9 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Testimonials • R&R by MHB LLC</title>
-  <meta name="description" content="See what clients have to say about R&R by MHB LLC — quality renovation and contracting services in Brunswick, OH." />
+  <title>Testimonials • R&amp;R by MHB LLC</title>
+  <meta name="description" content="See what clients have to say about R&amp;R by MHB LLC — quality renovation and contracting services in Brunswick, OH." />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Page-specific tweaks for testimonials */
+    .testimonials { display: grid; gap: 1.25rem; margin-top: 1rem; }
+    blockquote { background:#fafafa; border-left:4px solid #111; padding:1rem; border-radius:.4rem; }
+    blockquote p { margin-bottom:.5rem; }
+    blockquote cite { display:block; color:#555; font-style:normal; font-size:.95rem; }
+    .muted { color:#666; font-size:.95rem; margin-top:.75rem; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -25,36 +33,44 @@
     <section class="page-hero">
       <div class="wrap">
         <h1>What Our Clients Say</h1>
-        <p>Real feedback coming soon! In the meantime, here are a few examples of what customers often share about our work.</p>
+        <p>We’re collecting reviews from recent projects. Until then, these placeholders show how testimonials will appear.</p>
       </div>
     </section>
 
-    <section class="wrap" id="testimonials">
-      <blockquote>
-        <p>“They transformed our old bathroom into something incredible — exactly what we wanted and on budget!”</p>
-        <cite>— Homeowner, Brunswick</cite>
-      </blockquote>
+    <section class="wrap">
+      <div class="testimonials" id="testimonials">
+        <!-- Replace each blockquote with real quotes as they come in -->
+        <blockquote>
+          <p>“They transformed our bathroom exactly as we envisioned — and stayed within our budget.”</p>
+          <cite>— Homeowner, Brunswick</cite>
+        </blockquote>
 
-      <blockquote>
-        <p>“Professional, punctual, and honest. The new deck looks amazing. We’ve already recommended them to friends.”</p>
-        <cite>— Client, Medina County</cite>
-      </blockquote>
+        <blockquote>
+          <p>“Professional, punctual, and honest. Our new deck looks fantastic and the crew was great to work with.”</p>
+          <cite>— Client, Medina County</cite>
+        </blockquote>
 
-      <blockquote>
-        <p>“Excellent quality and communication throughout the entire renovation process. Highly recommend R&R by MHB.”</p>
-        <cite>— Repeat Customer, Cuyahoga County</cite>
-      </blockquote>
+        <blockquote>
+          <p>“Excellent quality and communication throughout the renovation. Highly recommend R&amp;R by MHB.”</p>
+          <cite>— Repeat Customer, Cuyahoga County</cite>
+        </blockquote>
+      </div>
 
-      <p class="small">Visit our <a href="https://www.facebook.com" target="_blank">Facebook page</a> for upcoming reviews and recent project updates.</p>
+      <p class="muted">
+        Want to leave a review? Share feedback on our
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook page</a>
+        or email <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed & Insured</p>
-      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> — Senior Technology Engineer</p>
+      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed &amp; Insured</p>
+      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank" rel="noopener">Rob Rainer</a> — Senior Technology Engineer</p>
     </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
-
