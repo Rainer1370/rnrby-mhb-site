@@ -1,1 +1,241 @@
+/* ===============================
+   R&R by MHB LLC - Global Styles
+   Developed by Rob Rainer • rainer1370.com
+   =============================== */
+
+/* Reset & Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+/* Layout helpers */
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  color: #111;
+}
+
+.nav {
+  float: right;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav a:hover {
+  color: #000;
+}
+
+.nav .cta {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #111;
+  border-radius: 0.5rem;
+}
+
+/* Hero Section */
+.hero {
+  background: #f6f6f6;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75rem 1rem;
+  border: 1px solid #111;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: #111;
+  margin-top: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background: #111;
+  color: #fff;
+}
+
+/* Services Grid */
+.services-overview .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+  list-style: disc;
+  padding-left: 1rem;
+}
+
+/* Page Hero */
+.page-hero {
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.page-hero h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid #eee;
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #555;
+  background: #fafafa;
+  padding: 1rem 0;
+}
+
+.site-footer a {
+  color: #111;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.developer {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Notes */
+.note {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Contact Form */
+.contact-form {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.contact-form label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+  font-family: inherit;
+}
+
+.contact-form button {
+  padding: 0.7rem 1rem;
+  border: 0;
+  border-radius: 0.5rem;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.contact-form button:hover {
+  background: #333;
+}
+
+/* Gallery */
+.gallery .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 0.4rem;
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gallery img:hover {
+  transform: scale(1.03);
+}
+
+.gallery figcaption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Small text */
+.small {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 0.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 720px) {
+  .nav {
+    float: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+  }
+
+  .brand {
+    display: block;
+    text-align: center;
+    margin-bottom: 0.25rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+}
 
