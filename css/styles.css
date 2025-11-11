@@ -237,5 +237,14 @@ body {
   .hero h1 {
     font-size: 1.5rem;
   }
+   /* CTA Bar (homepage) */
+  .cta-bar {
+    background: #f6f6f6;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 1.25rem 0;
+    text-align: center;
+  }
+
 }
 
