@@ -4,10 +4,99 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery • R&amp;R by MHB LLC</title>
-  <meta name="description" content="View completed renovation projects by R&amp;R by MHB LLC — bathrooms, flooring, and more." />
+  <meta name="description" content="View completed renovation projects by R&amp;R by MHB LLC — bathrooms and wood flooring." />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Page-specific background */
+    body.gallery-page {
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(15,118,110,.08), transparent 60%),
+        linear-gradient(180deg, #f9fbfb 0%, #ffffff 50%, #f9fbfb 100%);
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid #e4e4e4;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      margin-top: 2rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0f766e;
+      letter-spacing: 0.3px;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 8px;
+      height: 22px;
+      border-radius: 4px;
+      background: #0f766e;
+      box-shadow: 0 4px 14px rgba(15,118,110,0.25);
+    }
+
+    .row-label {
+      font-weight: 700;
+      color: #222;
+      margin: 0.75rem 0 0.25rem;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      letter-spacing: 0.8px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .grid-auto {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    figure {
+      background: #fdfdfd;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    figure:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #444;
+      padding: 0.4rem 0 0.6rem;
+      background: #fafafa;
+      border-top: 1px solid #eee;
+    }
+
+    @media (max-width: 720px) {
+      .grid-2, .grid-auto {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<body>
+<body class="gallery-page">
   <header class="site-header">
     <div class="wrap">
       <a class="brand" href="index.html">R&amp;R by MHB LLC</a>
@@ -25,77 +114,74 @@
     <section class="page-hero">
       <div class="wrap">
         <h1>Project Gallery</h1>
-        <p>A look at some of our recent renovations and craftsmanship.</p>
+        <p>A showcase of our recent renovations and quality craftsmanship.</p>
       </div>
     </section>
 
     <section class="wrap gallery">
-      <h2>Bath</h2>
-      <div class="grid">
-        <figure>
-          <img src="images/BathBefore1.jpg" alt="Bath Before 1" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathAfter1.jpg" alt="Bath After 1" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathBefore2.jpg" alt="Bath Before 2" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathAfter2.jpg" alt="Bath After 2" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
+      <!-- Bath -->
+      <div class="panel">
+        <h2 class="section-title">Bath</h2>
+
+        <div class="row-label">Before</div>
+        <div class="grid-2">
+          <figure>
+            <img src="images/BathBefore1.jpg" alt="Bath Before 1" loading="lazy" />
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <img src="images/BathBefore2.jpg" alt="Bath Before 2" loading="lazy" />
+            <figcaption>Before</figcaption>
+          </figure>
+        </div>
+
+        <div class="row-label">After</div>
+        <div class="grid-2">
+          <figure>
+            <img src="images/BathAfter1.jpg" alt="Bath After 1" loading="lazy" />
+            <figcaption>After</figcaption>
+          </figure>
+          <figure>
+            <img src="images/BathAfter2.jpg" alt="Bath After 2" loading="lazy" />
+            <figcaption>After</figcaption>
+          </figure>
+        </div>
       </div>
 
-      <h2>Bathroom</h2>
-      <div class="grid">
-        <figure>
-          <img src="images/BathroomBefore1.jpg" alt="Bathroom Before 1" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomAfter1.jpg" alt="Bathroom After 1" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomBefore2.jpg" alt="Bathroom Before 2" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomAfter2.jpg" alt="Bathroom After 2" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomBefore3.jpg" alt="Bathroom Before 3" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomAfter3.jpg" alt="Bathroom After 3" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomBefore4.jpg" alt="Bathroom Before 4" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/BathroomAfter4.jpg" alt="Bathroom After 4" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
+      <!-- Bathroom -->
+      <div class="panel">
+        <h2 class="section-title">Bathroom</h2>
+
+        <div class="row-label">Before</div>
+        <div class="grid-auto">
+          <figure><img src="images/BathroomBefore1.jpg" alt="Bathroom Before 1" loading="lazy" /><figcaption>Before</figcaption></figure>
+          <figure><img src="images/BathroomBefore2.jpg" alt="Bathroom Before 2" loading="lazy" /><figcaption>Before</figcaption></figure>
+          <figure><img src="images/BathroomBefore3.jpg" alt="Bathroom Before 3" loading="lazy" /><figcaption>Before</figcaption></figure>
+          <figure><img src="images/BathroomBefore4.jpg" alt="Bathroom Before 4" loading="lazy" /><figcaption>Before</figcaption></figure>
+        </div>
+
+        <div class="row-label">After</div>
+        <div class="grid-auto">
+          <figure><img src="images/BathroomAfter1.jpg" alt="Bathroom After 1" loading="lazy" /><figcaption>After</figcaption></figure>
+          <figure><img src="images/BathroomAfter2.jpg" alt="Bathroom After 2" loading="lazy" /><figcaption>After</figcaption></figure>
+          <figure><img src="images/BathroomAfter3.jpg" alt="Bathroom After 3" loading="lazy" /><figcaption>After</figcaption></figure>
+          <figure><img src="images/BathroomAfter4.jpg" alt="Bathroom After 4" loading="lazy" /><figcaption>After</figcaption></figure>
+        </div>
       </div>
 
-      <h2>Flooring</h2>
-      <div class="grid">
-        <figure>
-          <img src="images/Flooring1.jpg" alt="Flooring Project 1" loading="lazy" />
-          <figcaption>Before</figcaption>
-        </figure>
-        <figure>
-          <img src="images/Flooring2.jpg" alt="Flooring Project 2" loading="lazy" />
-          <figcaption>After</figcaption>
-        </figure>
+      <!-- Wood Flooring -->
+      <div class="panel">
+        <h2 class="section-title">Wood Flooring</h2>
+        <div class="grid-2">
+          <figure>
+            <img src="images/Flooring1.jpg" alt="Wood Flooring Project 1" loading="lazy" />
+            <figcaption>Wood Flooring</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Flooring2.jpg" alt="Wood Flooring Project 2" loading="lazy" />
+            <figcaption>Wood Flooring</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
   </main>
