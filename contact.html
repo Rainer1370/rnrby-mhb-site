@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact • R&R by MHB LLC</title>
-  <meta name="description" content="Contact R&R by MHB LLC for quality renovation and contracting services in Cuyahoga, Medina, and Summit County, Ohio." />
+  <title>Contact • R&amp;R by MHB LLC</title>
+  <meta name="description" content="Contact R&amp;R by MHB LLC for quality renovation and contracting services in Cuyahoga, Medina, and Summit County, Ohio." />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
   <header class="site-header">
     <div class="wrap">
@@ -31,43 +32,53 @@
 
     <section class="wrap">
       <h2>Get In Touch</h2>
-      <p><strong>R&R by MHB LLC</strong><br>
-      4773 Wolff Dr<br>
-      Brunswick, OH 44212<br>
-      Serving Cuyahoga, Medina, and Summit County</p>
+      <address>
+        <strong>R&amp;R by MHB LLC</strong><br>
+        4773 Wolff Dr<br>
+        Brunswick, OH 44212<br>
+        Serving Cuyahoga, Medina, and Summit County
+      </address>
 
       <p>
-        📞 <strong>Phone:</strong> <a href="tel:+13305551234">(330) 555-1234</a><br>
-        ✉️ <strong>Email:</strong> <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>
+        <strong>Phone:</strong> <a href="tel:+13305551234">(330) 555-1234</a><br>
+        <strong>Email:</strong> <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>
       </p>
 
       <form class="contact-form" name="contact" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="contact" />
-        <label>Full Name
-          <input type="text" name="name" required />
-        </label>
-        <label>Email
-          <input type="email" name="email" required />
-        </label>
-        <label>Phone
-          <input type="tel" name="phone" />
-        </label>
-        <label>Project Details
-          <textarea name="message" rows="6" placeholder="Tell us about your project..."></textarea>
-        </label>
+        <label for="name">Full Name</label>
+        <input id="name" type="text" name="name" required />
+
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" name="phone" />
+
+        <label for="message">Project Details</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..."></textarea>
+
         <button type="submit">Send Message</button>
       </form>
 
-      <p class="small">Prefer email? Write to <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a></p>
+      <p class="small">
+        Prefer email? Write to
+        <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
       <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed & Insured</p>
-      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> — Senior Technology Engineer</p>
+      <p class="developer">
+        Site developed by
+        <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> —
+        Senior Technology Engineer
+      </p>
     </div>
   </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
-
