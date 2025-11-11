@@ -32,6 +32,12 @@ body {
   background: #fff;
   z-index: 10;
 }
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
 
 .brand {
   font-weight: 700;
@@ -41,7 +47,6 @@ body {
 }
 
 .nav {
-  float: right;
   display: flex;
   gap: 1rem;
   align-items: center;
@@ -53,7 +58,8 @@ body {
   transition: color 0.2s ease-in-out;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav a:focus-visible {
   color: #000;
 }
 
@@ -91,7 +97,8 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.button:hover {
+.button:hover,
+.button:focus-visible {
   background: #111;
   color: #fff;
 }
@@ -119,6 +126,15 @@ body {
   margin-bottom: 0.5rem;
 }
 
+/* CTA Bar (homepage) */
+.cta-bar {
+  background: #f6f6f6;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 1.25rem 0;
+  text-align: center;
+}
+
 /* Footer */
 .site-footer {
   border-top: 1px solid #eee;
@@ -135,7 +151,8 @@ body {
   text-decoration: none;
 }
 
-.site-footer a:hover {
+.site-footer a:hover,
+.site-footer a:focus-visible {
   text-decoration: underline;
 }
 
@@ -182,11 +199,12 @@ body {
   transition: background 0.2s ease-in-out;
 }
 
-.contact-form button:hover {
+.contact-form button:hover,
+.contact-form button:focus-visible {
   background: #333;
 }
 
-/* Gallery */
+/* Gallery (legacy grid) */
 .gallery .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -212,6 +230,23 @@ body {
   color: #444;
 }
 
+/* Gallery (Before/After pairs) */
+.pairs { display: grid; gap: 2rem; margin-top: 1.5rem; }
+.pair { display: grid; gap: 1rem; }
+.pair h2 { font-size: 1.15rem; }
+.ba-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+.ba-grid figure { margin: 0; }
+.ba-grid img { width: 100%; height: auto; border-radius: .4rem; display: block; }
+.ba-grid figcaption { text-align: center; font-size: .9rem; color: #444; margin-top: .4rem; }
+
+.muted { color: #666; font-size: .95rem; margin-top: .75rem; }
+
+/* Testimonials */
+.testimonials { display: grid; gap: 1.25rem; margin-top: 1rem; }
+blockquote { background:#fafafa; border-left:4px solid #111; padding:1rem; border-radius:.4rem; }
+blockquote p { margin-bottom:.5rem; }
+blockquote cite { display:block; color:#555; font-style:normal; font-size:.95rem; }
+
 /* Small text */
 .small {
   font-size: 0.9rem;
@@ -219,10 +254,15 @@ body {
   margin-top: 0.5rem;
 }
 
+/* Accessibility: focus outlines */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
+  outline: 2px solid #111;
+  outline-offset: 2px;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 720px) {
   .nav {
-    float: none;
     justify-content: center;
     flex-wrap: wrap;
     padding: 0.5rem 0;
@@ -231,20 +271,13 @@ body {
   .brand {
     display: block;
     text-align: center;
-    margin-bottom: 0.25rem;
   }
 
   .hero h1 {
     font-size: 1.5rem;
   }
-   /* CTA Bar (homepage) */
-  .cta-bar {
-    background: #f6f6f6;
-    border-top: 1px solid #eee;
-    border-bottom: 1px solid #eee;
-    padding: 1.25rem 0;
-    text-align: center;
+
+  .ba-grid {
+    grid-template-columns: 1fr;
   }
-
 }
-
