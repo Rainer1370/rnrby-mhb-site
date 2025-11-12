@@ -3,11 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact • R&amp;R by MHB LLC</title>
-  <meta name="description" content="Contact R&amp;R by MHB LLC for quality renovation and contracting services in Cuyahoga, Medina, and Summit County, Ohio." />
-  <link rel="stylesheet" href="css/styles.css" />
+  <title>Contact • R&R by MHB LLC</title>
+  <meta name="description" content="Contact R&R by MHB LLC for quality renovation and contracting services in Cuyahoga, Medina, and Summit County, Ohio." />
+  <!-- cache-bust to ensure latest styles load -->
+  <link rel="stylesheet" href="css/styles.css?v=4" />
+  <style>
+    /* Optional: make the Google Form iframe nicely responsive with a fixed max height */
+    .form-embed {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+      background: #fff;
+      border: 1px solid #e6e8ee;
+    }
+    .form-embed iframe {
+      width: 100%;
+      height: 900px; /* adjust if your form gets longer/shorter */
+      border: 0;
+    }
+    @media (max-width: 720px){
+      .form-embed iframe { height: 1100px; }
+    }
+  </style>
 </head>
-
 <body>
   <header class="site-header">
     <div class="wrap">
@@ -30,55 +48,44 @@
       </div>
     </section>
 
-    <section class="wrap">
+    <section class="wrap section-card">
       <h2>Get In Touch</h2>
-      <address>
-        <strong>R&amp;R by MHB LLC</strong><br>
-        4773 Wolff Dr<br>
-        Brunswick, OH 44212<br>
-        Serving Cuyahoga, Medina, and Summit County
-      </address>
+
+      <p><strong>R&amp;R by MHB LLC</strong><br>
+      4773 Wolff Dr<br>
+      Brunswick, OH 44212<br>
+      Serving Cuyahoga, Medina, and Summit County</p>
 
       <p>
-        <strong>Phone:</strong> <a href="tel:+13305551234">(330) 555-1234</a><br>
-        <strong>Email:</strong> <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>
+        <strong>Email:</strong> <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a><br>
+        <strong>Facebook:</strong> <a href="https://facebook.com/r.and.r.by.mhb" target="_blank" rel="noopener">facebook.com/r.and.r.by.mhb</a>
       </p>
 
-      <form class="contact-form" name="contact" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="contact" />
-        <label for="name">Full Name</label>
-        <input id="name" type="text" name="name" required />
+      <!-- Google Form Embed -->
+      <div class="form-embed" aria-label="Contact Form">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScrKdX--kcoULNH6EVD1Um8MeAP6XDZ9QUss3DtqzhagFgDSw/viewform?embedded=true"
+          marginheight="0" marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
 
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" required />
-
-        <label for="phone">Phone</label>
-        <input id="phone" type="tel" name="phone" />
-
-        <label for="message">Project Details</label>
-        <textarea id="message" name="message" rows="6" placeholder="Tell us about your project..."></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-
-      <p class="small">
-        Prefer email? Write to
-        <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>
+      <p class="small" style="margin-top:1rem;">
+        Prefer email? Write to <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a>.
+        You can also reach us on <a href="https://facebook.com/r.and.r.by.mhb" target="_blank" rel="noopener">Facebook</a>.
       </p>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed & Insured</p>
-      <p class="developer">
-        Site developed by
-        <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> —
-        Senior Technology Engineer
+      <p>© 2025 R&amp;R by MHB LLC • Brunswick, OH • Serving Cuyahoga, Medina, and Summit County • Licensed &amp; Insured</p>
+      <p>
+        <a href="mailto:info@randrbymhb.com">info@randrbymhb.com</a> |
+        <a href="https://facebook.com/r.and.r.by.mhb" target="_blank" rel="noopener">Facebook</a>
       </p>
+      <p class="developer">Site developed by <a href="https://rainer1370.com" target="_blank">Rob Rainer</a> — Senior Technology Engineer</p>
     </div>
   </footer>
-
-  <script src="js/main.js"></script>
 </body>
 </html>
