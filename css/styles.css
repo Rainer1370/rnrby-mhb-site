@@ -13,6 +13,8 @@
   --brand-600:#0d6b63;
   --brand-700:#0b5f58;
   --brand-soft:#e7f9f5;
+  --accent-magenta: #d63384;
+
 
   --bg: #ffffff;
   --bg-alt:#fafafa;
@@ -50,7 +52,11 @@ body{
 }
 .site-header .wrap{ display:flex; align-items:center; justify-content:space-between; gap:1rem; }
 .brand{
-  font-weight:800; font-size:1.12rem; letter-spacing:.2px; text-decoration:none; color:#0b0b0b;
+  font-weight:800;
+  font-size:1.12rem;
+  letter-spacing:.2px;
+  text-decoration:none;
+  color: var(--accent-magenta);
 }
 
 .nav{ display:flex; gap:1.1rem; align-items:center; }
@@ -241,7 +247,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Accent utility for special characters like the “R” and “&” in the hero line */
 .accent{
-  color:var(--brand);
+  color: var(--accent-magenta);
 }
 
 /* --------- Responsive --------- */
