@@ -247,8 +247,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Accent utility for special characters like the “R” and “&” in the hero line */
 .accent{
-  color: var(--accent-magenta);
+  color: var(--accent-magenta) !important;
+  font-weight: inherit;
 }
+
 
 /* --------- Responsive --------- */
 @media (max-width: 720px){
